@@ -7,46 +7,27 @@ import socket
 
 app = Flask(__name__)
 
-echoForm = '''
-    <p> newest deploy! :) </p>
-    <p>Enter something here!!!</p>
-     <form action="/echo_user_input" method="POST">
-         <input name="user_input">
-         <input type="submit" value="Submit!">
-     </form>
-     '''
-hostaddress = socket.gethostbyname(socket.gethostname())
-hostaddress = hostaddress.split('.')
-hostaddress[3] = '1'
-hostaddress = '.'.join(hostaddress)
+dataanalyzer_addr = "http://34.118.228.146:5050/"
 
 @app.route("/")
 def main():
     # print(hostaddress)
     # print(type(hostaddress))
-    return echoForm
+    return "welcome to my final project!"
 
-@app.route("/echo_user_input", methods=["POST"])
-def echo_input():
-    input_text = request.form.get("user_input", "")
-    if input_text == "a":
-        response = requests.get(f"http://{hostaddress}:5050/test_string")
-        return "You entered: " + input_text + "\n" + response.text
-    try:
-        response = requests.get(f"{input_text}/test_string")
-    except:
-        response = "wrong address. try again."
-    # print(response.text)
-    # input_text = request.form.get("user_input", "")
-    return "You entered: " + input_text + "\n" + response.text
-
-@app.route("/retrieve_id", methods=["GET"])
-def retrieve_id():
-    response = requests.get("http://34.118.228.146:5050/retrieve_id")
+@app.route("/retrieve_records", methods=["GET"])
+def retrieve_records():
+    response = requests.get(dataanalyzer_addr + "retrieve_records")
     return response.text
-@app.route("/store_id", methods=["GET"])
-def store_id():
-    response = requests.get("http://34.118.228.146:5050/store_id")
+
+@app.route("/scrape", methods=["GET"])
+def call_scrape():
+    response = requests.get(dataanalyzer_addr + "scrape")
+    return response.text
+
+@app.route("/delete_records", methods=["GET"])
+def call_delete():
+    response = requests.get(dataanalyzer_addr + "delete_records")
     return response.text
 
 @app.route("/table")
@@ -54,5 +35,8 @@ def table():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    print("hello")
+    print("hello world! :D")
+    
+    # localhost
+    dataanalyzer_addr = "http://127.0.0.1:5051/"
     app.run(port=5000)
