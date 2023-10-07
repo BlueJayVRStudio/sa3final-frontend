@@ -42,11 +42,11 @@ def echo_input():
 
 @app.route("/retrieve_id", methods=["GET"])
 def retrieve_id():
-    response = requests.get("http://34.118.231.185:5050/retrieve_id")
+    response = requests.get("http://34.118.228.146:5050/retrieve_id")
     return response.text
 @app.route("/store_id", methods=["GET"])
 def store_id():
-    response = requests.get("http://34.118.231.185:5050/store_id")
+    response = requests.get("http://34.118.228.146:5050/store_id")
     return response.text
 
 @app.route("/table")
