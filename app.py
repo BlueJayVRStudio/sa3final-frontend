@@ -8,7 +8,7 @@ import socket
 app = Flask(__name__)
 
 echoForm = '''
-    <p> newest deploy :) </p>
+    <p> newest deploy! :) </p>
     <p>Enter something here!!!</p>
      <form action="/echo_user_input" method="POST">
          <input name="user_input">
