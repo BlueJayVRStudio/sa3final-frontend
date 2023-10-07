@@ -7,7 +7,7 @@ import socket
 
 app = Flask(__name__)
 
-dataanalyzer_addr = "http://34.118.237.200:5051/"
+dataanalyzer_addr = "http://34.118.238.31:5051/"
 
 @app.route("/")
 def main():
