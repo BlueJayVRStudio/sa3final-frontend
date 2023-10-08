@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import requests
+import json
 from flask import Flask, request, render_template
 
 import socket
@@ -32,7 +33,10 @@ def call_delete():
 
 @app.route("/table")
 def table():
-    return render_template("index.html")
+    response = requests.get(dataanalyzer_addr + "retrieve_records")
+    rows = json.loads(response.text)
+    return render_template("table.html", rows=rows)
+
 
 if __name__ == "__main__":
     print("hello world! :D")

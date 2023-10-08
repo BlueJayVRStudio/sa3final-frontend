@@ -13,32 +13,24 @@
 <body>
 
 <div class="container">
-  <h2>Striped Rows</h2>
-  <p>The .table-striped class adds zebra-stripes to a table:</p>            
+  <h2>Art Listing</h2>
+  <p>Art listing from The Art Institute of Chicago</p>            
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>Title</th>
+        <th>Image Link</th>
+        <th>Physical Description</th>
       </tr>
     </thead>
     <tbody>
+      {% for row in rows %}
       <tr>
-        <td>BlueJay</td>
-        <td>Oh</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+        <td>{{row.name}}</td>
+        <td><a href="{{row.image_link}}">Image Link :D</a></td>
+        <td>{% for part in row['dimensions_detail'] %}<ul><li>Part Name: {{part['part_name']}}</li><li>{{part['processed']}}</li></ul>{% endfor %}</td>
+        </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>
