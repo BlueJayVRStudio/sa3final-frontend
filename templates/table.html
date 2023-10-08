@@ -14,7 +14,20 @@
 
 <div class="container">
   <h2>Art Listing</h2>
-  <p>Art listing from The Art Institute of Chicago</p>            
+  <p>Art listing from The Art Institute of Chicago</p>
+
+  <form action="/table" method="get" id="retrieveTable"></form>
+  <form action="/scrape" method="get" id="scrapeData"></form>
+  <form action="/delete_records" method="get" id="deleteData"></form>
+</div>
+
+<div class="container">
+  <button type="submit" form="retrieveTable" class="btn btn-primary">Retrieve Table</button>
+  <button type="submit" form="scrapeData" class="btn btn-primary">Call to Scrape Data</button>
+  <button type="submit" form="deleteData" class="btn btn-primary">Call to Delete All Records</button>
+</div>
+
+<div class="container">
   <table class="table table-striped">
     <thead>
       <tr>

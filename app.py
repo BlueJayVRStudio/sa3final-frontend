@@ -12,9 +12,7 @@ dataanalyzer_addr = "http://34.118.238.31:5051/"
 
 @app.route("/")
 def main():
-    # print(hostaddress)
-    # print(type(hostaddress))
-    return "welcome to my final project!"
+    return render_template("table.html")
 
 @app.route("/retrieve_records", methods=["GET"])
 def retrieve_records():
