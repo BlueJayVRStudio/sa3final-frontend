@@ -45,8 +45,8 @@ def table():
     except:
         return render_template("table.html", message="Failed to retrieve table :(", failed=True)
     
-    rows = json.loads(response.text)
     if response.status_code == 200:
+        rows = json.loads(response.text)
         return render_template("table.html", rows=rows, message="Table retrieved!", failed=False)
     else:
         return render_template("table.html", rows=rows, message="Failed to retrieve table :(", failed=False)
