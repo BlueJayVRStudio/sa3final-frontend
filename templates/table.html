@@ -18,13 +18,17 @@
 
   <form action="/table" method="get" id="retrieveTable"></form>
   <form action="/scrape" method="get" id="scrapeData"></form>
+  <form action="/scrape_rabbit" method="get" id="scrapeDataRabbit"></form>
   <form action="/delete_records" method="get" id="deleteData"></form>
+  <form action="/delete_rabbit" method="get" id="deleteDataRabbit"></form>
 </div>
 
 <div class="container">
   <button type="submit" form="retrieveTable" class="btn btn-primary">Retrieve Table</button>
   <button type="submit" form="scrapeData" class="btn btn-primary">Call to Scrape Data</button>
   <button type="submit" form="deleteData" class="btn btn-primary">Call to Delete All Records</button>
+  <button type="submit" form="scrapeDataRabbit" class="btn btn-primary">Call to Scrape by RabbitMQ</button>
+  <button type="submit" form="deleteDataRabbit" class="btn btn-primary">Call to Delete by RabbitMQ</button>
 </div>
 
 <div class="container">
