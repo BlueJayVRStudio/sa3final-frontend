@@ -80,7 +80,7 @@ start_http_server(9100)
 
 ## EVENT COLLABORATION
 def create_rabbitmq_connection():
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host='34.27.5.109'))
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host='34.118.234.233'))
     channel = connection.channel()
     channel.queue_declare(queue='transactions')
     return (connection, channel)
