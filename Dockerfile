@@ -49,4 +49,4 @@ EXPOSE 5000
 RUN python tests.py
 
 # Run the application.
-CMD gunicorn 'app:app' --bind=0.0.0.0:5000
+CMD gunicorn 'app:app' --bind=0.0.0.0:5000 --threads 10
